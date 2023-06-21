@@ -19,16 +19,16 @@ function FillBoard(board) {
 let GetPuzzle = document.getElementById('GetPuzzle')
 let SolvePuzzle = document.getElementById('SolvePuzzle')
 GetPuzzle.onclick = function () {
-	// var xhrRequest = new XMLHttpRequest()
-	// xhrRequest.onload = function () {
-	// 	var response = JSON.parse(xhrRequest.response)
-	// 	console.log(response)
-	// 	board = response.board
+	var xhrRequest = new XMLHttpRequest()
+	xhrRequest.onload = function () {
+		var response = JSON.parse(xhrRequest.response)
+		console.log(response)
+		board = response
 		FillBoard(board)
-	// }
-	// xhrRequest.open('get', 'https://sugoku.herokuapp.com/board?difficulty=easy')
+	}
+	xhrRequest.open('get', 'https://sudokugen-preetish.vercel.app')
 	// //we can change the difficulty of the puzzle the allowed values of difficulty are easy, medium, hard and random
-	// xhrRequest.send()
+	xhrRequest.send()
 }
 SolvePuzzle.onclick = () => {
 	SudokuSolver(board, 0, 0, 9);
